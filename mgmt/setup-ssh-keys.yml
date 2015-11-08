@@ -1,0 +1,35 @@
+---
+#################################################################
+# Make sure SSH Trust is present from mgmt to all other nodes
+# so that we are not required to use password for ansible
+# execution on the nodes.
+#
+# NOTE: We might have to run this playboook with --ask-pass flag
+# for the first time for it to work.
+#################################################################
+
+# Make sure SSH Keys are present in the mgmt node
+- hosts: localhost
+  sudo: yes
+  gather_facts: no
+  remote_user: vagrant
+
+  tasks:
+
+  - name: Generate pulic and private keys SSH Keys
+    user: name=vagrant
+          generate_ssh_key=yes
+          ssh_key_bits=2048
+
+# Copy public key on all nodes to establish SST Trust
+- hosts: all
+  sudo: yes
+  gather_facts: no
+  remote_user: vagrant
+
+  tasks:
+
+  - name: Install SSH Key on Nodes
+    authorized_key: user=vagrant
+                    key="{{ lookup('file', '/home/vagrant/.ssh/id_rsa.pub') }}"
+                    state=present
