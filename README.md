@@ -1,6 +1,14 @@
 # Vagrant-Ansible Sandbox
 VA Sandbox (VAS) is an environment for development experimentation. It automates the creation of disposable VM environments that can be used to test ideas, configurations and settings, that otherwise would be painful to create and maintain manually.
 
+Table of Contents
+=================
+
+  * [Vagrant\-Ansible Sandbox](#vagrant-ansible-sandbox)
+    * [How is this Sandbox organized](#how-is-this-sandbox-organized)
+    * [How to use it](#how-to-use-it)
+        * [This is it\! Happy experimentation\!](#this-is-it-happy-experimentation)
+
 ## How is this Sandbox organized
 The sandbox provides a management node 'mgmt' VM and bunch of other VMs that can be wired together in flexible configurations. The management node is a ramp node and should be used to initiate all types of experimentation and is the only node that needs Ansible to be installed on it. This way, there is no need to install anything additional on the local laptop, and it makes a clean way to setup and tear down the sandboxes. Once the experimentations are done, all the VMs can be safely destroyed.
 
