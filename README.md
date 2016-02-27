@@ -14,7 +14,7 @@ This sandbox assumes the following software is already setup on your local lapto
 
   + Virtualbox for creating and running VMs locally. Though one can use VMWare or KVM.
   + Vagrant
-  + Access to Virtualbox images. We provide a URL to
+  + Access to Virtualbox images.
 
 
 ## How is this Sandbox organized
@@ -77,6 +77,6 @@ Most common use case for VAS is to be able to create local VMs using Vagrant. Yo
 6. Edit the **inventory.txt** file to reflect the proper number of nodes ansible has to provision. Comment the extra ones.
 7. Run the ansible playbooks using the syntax `ansible-playbook site.yml`.
 
-> NOTE that **ansible.cfg** file has a special flag called `ask_pass=True`. This is only needed for the first run. It asks for **vagrant** username (password vagrant). It makes sense to comment out this line after the successful first run. 
+> NOTE that **ansible.cfg** file has a special flag called `ask_pass=True`. This is only needed for the first run. It asks for **vagrant** username (password vagrant). It makes sense to comment out this line after the successful first run.
 
 ####This is it! Happy experimentation!
