@@ -1,0 +1,13 @@
+##################################################################
+# Copy the public keys to all the nodes to establish a password-less
+# run of ansible.
+#
+# NOTE: We might have to run this playboook with --ask-pass flag
+# for the first time for it to work.
+#################################################################
+
+---
+- name: Install SSH Key on Nodes
+  authorized_key: user=vagrant
+                  key="{{ lookup('file', '/home/vagrant/.ssh/id_rsa.pub') }}"
+                  state=present

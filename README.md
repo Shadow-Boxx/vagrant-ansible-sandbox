@@ -9,6 +9,14 @@ Table of Contents
     * [How to use it](#how-to-use-it)
         * [This is it\! Happy experimentation\!](#this-is-it-happy-experimentation)
 
+## Prerequisites
+This sandbox assumes the following software is already setup on your local laptop / workstation:
+
+  + Virtualbox for creating and running VMs locally. Though one can use VMWare or KVM.
+  + Vagrant
+  + Access to Virtualbox images. We provide a URL to
+
+
 ## How is this Sandbox organized
 The sandbox provides a management node 'mgmt' VM and bunch of other VMs that can be wired together in flexible configurations. The management node is a ramp node and should be used to initiate all types of experimentation and is the only node that needs Ansible to be installed on it. This way, there is no need to install anything additional on the local laptop, and it makes a clean way to setup and tear down the sandboxes. Once the experimentations are done, all the VMs can be safely destroyed.
 
@@ -65,10 +73,10 @@ Most common use case for VAS is to be able to create local VMs using Vagrant. Yo
 2. Do `vagrant up` to bring up all nodes. Give it a few mins.
 3. Do `vagrant ssh mgmt` to log into the management node and perform the desired experimentation.
 4. In the mgmt node, check ansible version: `ansible --version` to make sure that the latest version is properly installed.
-5. Go to the "setup" directory by doing `cd setup`. The ansible playbooks are numbered in the sequence in which they need to be run.
-6. Edit the **1_known_hosts.yml** file to match the host names with the **inventory.txt** file.
-7. Run the ansible playbooks using the syntax `ansible-playbook -i inventory.txt <playbook.yml>`.
+5. Go to the "setup" directory by doing `cd setup`. The ansible playbooks are structured with a number of roles.
+6. Edit the **inventory.txt** file to reflect the proper number of nodes ansible has to provision. Comment the extra ones.
+7. Run the ansible playbooks using the syntax `ansible-playbook site.yml`.
 
-> NOTE that the third playbook will need an additional switch for it to accept the password once `ansible-playbook -i inventory.txt 3_install-ssh-keys-on-nodes.yml --ask-pass`. It will ask for the password of user "vagrant" as specified in the playbook (vagrant password is 'vagrant' by default).
+> NOTE that **ansible.cfg** file has a special flag called `ask_pass=True`. This is only needed for the first run. It asks for **vagrant** username (password vagrant). It makes sense to comment out this line after the successful first run. 
 
 ####This is it! Happy experimentation!
