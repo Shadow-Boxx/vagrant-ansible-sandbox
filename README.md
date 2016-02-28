@@ -22,14 +22,6 @@ This sandbox assumes the following software is already setup on your local lapto
   + Access to Virtualbox images.
 
 
-## Prerequisites
-This sandbox assumes the following software is already setup on your local laptop / workstation:
-
-  + Virtualbox for creating and running VMs locally. Though one can use VMWare or KVM.
-  + Vagrant
-  + Access to Virtualbox images.
-
-
 ## How is this Sandbox organized
 The sandbox provides a management node 'mgmt' VM and bunch of other VMs that can be wired together in flexible configurations. The management node is a ramp node and should be used to initiate all types of experimentation and is the only node that needs Ansible to be installed on it. This way, there is no need to install anything additional on the local laptop, and it makes a clean way to setup and tear down the sandboxes. Once the experimentations are done, all the VMs can be safely destroyed.
 
