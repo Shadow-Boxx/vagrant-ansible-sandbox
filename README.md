@@ -106,7 +106,7 @@ $ vagrant ssh mgmt
 $ ansible --version
 
 # Go to ansible playbooks directory
-$ cd setup_trusted_sources
+$ cd setup_trusted_nodes
 
 # Edit the inventory file to reflect the proper number of nodes ansible has to provision. Comment the extra ones.
 $ vim inventory.txt
