@@ -1,0 +1,18 @@
+---
+- name: Establish known hosts
+  hosts: localhost
+  sudo: yes
+  gather_facts: no
+
+  roles:
+    - { role: "establish_known_hosts" }
+    - { role: "setup_ssh_keys" }
+
+- name: Setup and Install SSH Keys on Nodes
+  hosts: all
+  sudo: yes
+  gather_facts: no
+  remote_user: vagrant
+
+  roles:
+    - { role: "install_ssh_keys_on_nodes" }
