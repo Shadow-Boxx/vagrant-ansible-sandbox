@@ -17,7 +17,7 @@ yum install -y net-tools the_silver_searcher ack vim
 echo
 echo "--> Copying playbooks to mgmt"
 # mkdir -p /home/vagrant/setup
-cp -a /vagrant/setup_trusted_sources/* /home/vagrant/
+cp -a /vagrant/setup_trusted_nodes/* /home/vagrant/
 chown -R vagrant:vagrant /home/vagrant
 
 # Create an awesome bash prompt
